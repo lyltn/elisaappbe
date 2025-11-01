@@ -1,9 +1,9 @@
-package org.example.ktigerstudybe.service.user;
+package com.example.elisaappbe.service.user;
 
-import org.example.ktigerstudybe.dto.req.ChangePasswordRequest;
-import org.example.ktigerstudybe.dto.req.ForgotPasswordRequest;
-import org.example.ktigerstudybe.dto.req.UserRequest;
-import org.example.ktigerstudybe.dto.resp.UserResponse;
+import com.example.elisaappbe.dto.req.ChangePasswordRequest;
+import com.example.elisaappbe.dto.req.ForgotPasswordRequest;
+import com.example.elisaappbe.dto.req.UserRequest;
+import com.example.elisaappbe.dto.resp.UserResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

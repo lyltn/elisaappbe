@@ -1,5 +1,5 @@
 // src/main/java/org/example/ktigerstudybe/model/UserExerciseResult.java
-package org.example.ktigerstudybe.model;
+package com.example.elisaappbe.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

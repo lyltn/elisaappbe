@@ -1,11 +1,11 @@
-package org.example.ktigerstudybe.service.grammarTheory;
+package com.example.elisaappbe.service.grammarTheory;
 
-import org.example.ktigerstudybe.dto.req.GrammarTheoryRequest;
-import org.example.ktigerstudybe.dto.resp.GrammarTheoryResponse;
-import org.example.ktigerstudybe.model.GrammarTheory;
-import org.example.ktigerstudybe.model.Lesson;
-import org.example.ktigerstudybe.repository.GrammarTheoryRepository;
-import org.example.ktigerstudybe.repository.LessonRepository;
+import com.example.elisaappbe.dto.req.GrammarTheoryRequest;
+import com.example.elisaappbe.dto.resp.GrammarTheoryResponse;
+import com.example.elisaappbe.model.GrammarTheory;
+import com.example.elisaappbe.model.Lesson;
+import com.example.elisaappbe.repository.GrammarTheoryRepository;
+import com.example.elisaappbe.repository.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

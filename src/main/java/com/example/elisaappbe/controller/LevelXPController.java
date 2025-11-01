@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.LevelXPRequest;
-import org.example.ktigerstudybe.dto.resp.LevelXPResponse;
-import org.example.ktigerstudybe.service.levelxp.LevelXPService;
+import com.example.elisaappbe.dto.req.LevelXPRequest;
+import com.example.elisaappbe.dto.resp.LevelXPResponse;
+import com.example.elisaappbe.service.levelxp.LevelXPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

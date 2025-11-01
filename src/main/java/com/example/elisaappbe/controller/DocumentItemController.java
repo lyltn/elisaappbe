@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.DocumentItemRequest;
-import org.example.ktigerstudybe.dto.resp.DocumentItemResponse;
-import org.example.ktigerstudybe.service.documentItem.DocumentItemService;
+import com.example.elisaappbe.dto.req.DocumentItemRequest;
+import com.example.elisaappbe.dto.resp.DocumentItemResponse;
+import com.example.elisaappbe.service.documentItem.DocumentItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

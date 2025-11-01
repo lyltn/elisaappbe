@@ -1,9 +1,9 @@
-package org.example.ktigerstudybe.service.levelxp;
+package com.example.elisaappbe.service.levelxp;
 
-import org.example.ktigerstudybe.dto.req.LevelXPRequest;
-import org.example.ktigerstudybe.dto.resp.LevelXPResponse;
-import org.example.ktigerstudybe.model.LevelXP;
-import org.example.ktigerstudybe.repository.LevelXPRepository;
+import com.example.elisaappbe.dto.req.LevelXPRequest;
+import com.example.elisaappbe.dto.resp.LevelXPResponse;
+import com.example.elisaappbe.model.LevelXP;
+import com.example.elisaappbe.repository.LevelXPRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

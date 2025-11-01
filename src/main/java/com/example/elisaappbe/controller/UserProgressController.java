@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.UserProgressRequest;
-import org.example.ktigerstudybe.dto.resp.UserProgressResponse;
-import org.example.ktigerstudybe.service.userprogress.UserProgressService;
+import com.example.elisaappbe.dto.req.UserProgressRequest;
+import com.example.elisaappbe.dto.resp.UserProgressResponse;
+import com.example.elisaappbe.service.userprogress.UserProgressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

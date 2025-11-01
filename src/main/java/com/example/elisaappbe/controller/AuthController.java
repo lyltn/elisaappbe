@@ -1,14 +1,14 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.ktigerstudybe.dto.req.ForgotPasswordRequest;
-import org.example.ktigerstudybe.dto.req.GoogleSignInRequest;
-import org.example.ktigerstudybe.dto.req.ResetPasswordRequest;
-import org.example.ktigerstudybe.dto.req.SignInRequest;
-import org.example.ktigerstudybe.dto.req.SignUpRequest;
-import org.example.ktigerstudybe.dto.resp.AuthResponse;
-import org.example.ktigerstudybe.dto.resp.GoogleSignInResponse;
-import org.example.ktigerstudybe.service.auth.AuthService;
+import com.example.elisaappbe.dto.req.ForgotPasswordRequest;
+import com.example.elisaappbe.dto.req.GoogleSignInRequest;
+import com.example.elisaappbe.dto.req.ResetPasswordRequest;
+import com.example.elisaappbe.dto.req.SignInRequest;
+import com.example.elisaappbe.dto.req.SignUpRequest;
+import com.example.elisaappbe.dto.resp.AuthResponse;
+import com.example.elisaappbe.dto.resp.GoogleSignInResponse;
+import com.example.elisaappbe.service.auth.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;

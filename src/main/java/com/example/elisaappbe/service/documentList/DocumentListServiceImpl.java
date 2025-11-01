@@ -1,16 +1,16 @@
 // src/main/java/org/example/ktigerstudybe/service/documentList/DocumentListServiceImpl.java
-package org.example.ktigerstudybe.service.documentList;
+package com.example.elisaappbe.service.documentList;
 
-import org.example.ktigerstudybe.dto.req.DocumentListRequest;
-import org.example.ktigerstudybe.dto.resp.DocumentListResponse;
-import org.example.ktigerstudybe.mapper.DocumentListMapper;
-import org.example.ktigerstudybe.model.DocumentItem;
-import org.example.ktigerstudybe.model.DocumentList;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.repository.DocumentItemRepository;
-import org.example.ktigerstudybe.repository.DocumentListRepository;
-import org.example.ktigerstudybe.repository.FavoriteDocumentListRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.dto.req.DocumentListRequest;
+import com.example.elisaappbe.dto.resp.DocumentListResponse;
+import com.example.elisaappbe.mapper.DocumentListMapper;
+import com.example.elisaappbe.model.DocumentItem;
+import com.example.elisaappbe.model.DocumentList;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.repository.DocumentItemRepository;
+import com.example.elisaappbe.repository.DocumentListRepository;
+import com.example.elisaappbe.repository.FavoriteDocumentListRepository;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

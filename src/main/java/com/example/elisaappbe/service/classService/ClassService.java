@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.classService;
+package com.example.elisaappbe.service.classService;
 
-import org.example.ktigerstudybe.dto.req.ClassRequest;
-import org.example.ktigerstudybe.dto.resp.ClassResponse;
+import com.example.elisaappbe.dto.req.ClassRequest;
+import com.example.elisaappbe.dto.resp.ClassResponse;
 
 import java.util.List;
 

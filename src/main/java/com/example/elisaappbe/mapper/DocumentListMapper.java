@@ -1,8 +1,9 @@
 // src/main/java/org/example/ktigerstudybe/mapper/DocumentListMapper.java
-package org.example.ktigerstudybe.mapper;
+package com.example.elisaappbe.mapper;
 
-import org.example.ktigerstudybe.dto.resp.DocumentListResponse;
-import org.example.ktigerstudybe.model.DocumentList;
+
+import com.example.elisaappbe.dto.resp.DocumentListResponse;
+import com.example.elisaappbe.model.DocumentList;
 import org.springframework.stereotype.Component;
 
 @Component

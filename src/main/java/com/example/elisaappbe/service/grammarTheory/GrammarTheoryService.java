@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.grammarTheory;
+package com.example.elisaappbe.service.grammarTheory;
 
-import org.example.ktigerstudybe.dto.req.GrammarTheoryRequest;
-import org.example.ktigerstudybe.dto.resp.GrammarTheoryResponse;
+import com.example.elisaappbe.dto.req.GrammarTheoryRequest;
+import com.example.elisaappbe.dto.resp.GrammarTheoryResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

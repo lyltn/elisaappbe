@@ -1,9 +1,9 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.LessonRequest;
-import org.example.ktigerstudybe.dto.resp.LessonResponse;
-import org.example.ktigerstudybe.dto.resp.LessonWithProgressResponse;
-import org.example.ktigerstudybe.service.lesson.LessonService;
+import com.example.elisaappbe.dto.req.LessonRequest;
+import com.example.elisaappbe.dto.resp.LessonResponse;
+import com.example.elisaappbe.dto.resp.LessonWithProgressResponse;
+import com.example.elisaappbe.service.lesson.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

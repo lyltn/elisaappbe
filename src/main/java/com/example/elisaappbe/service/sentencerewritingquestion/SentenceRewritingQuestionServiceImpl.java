@@ -1,11 +1,11 @@
-package org.example.ktigerstudybe.service.sentencerewritingquestion;
+package com.example.elisaappbe.service.sentencerewritingquestion;
 
-import org.example.ktigerstudybe.dto.req.SentenceRewritingQuestionRequest;
-import org.example.ktigerstudybe.dto.resp.SentenceRewritingQuestionResponse;
-import org.example.ktigerstudybe.model.Exercise;
-import org.example.ktigerstudybe.model.SentenceRewritingQuestion;
-import org.example.ktigerstudybe.repository.ExerciseRepository;
-import org.example.ktigerstudybe.repository.SentenceRewritingQuestionRepository;
+import com.example.elisaappbe.dto.req.SentenceRewritingQuestionRequest;
+import com.example.elisaappbe.dto.resp.SentenceRewritingQuestionResponse;
+import com.example.elisaappbe.model.Exercise;
+import com.example.elisaappbe.model.SentenceRewritingQuestion;
+import com.example.elisaappbe.repository.ExerciseRepository;
+import com.example.elisaappbe.repository.SentenceRewritingQuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

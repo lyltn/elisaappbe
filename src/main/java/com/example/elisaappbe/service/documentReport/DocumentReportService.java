@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.documentReport;
+package com.example.elisaappbe.service.documentReport;
 
-import org.example.ktigerstudybe.dto.req.DocumentReportRequest;
-import org.example.ktigerstudybe.dto.resp.DocumentReportResponse;
+import com.example.elisaappbe.dto.req.DocumentReportRequest;
+import com.example.elisaappbe.dto.resp.DocumentReportResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

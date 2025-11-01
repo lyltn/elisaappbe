@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.FavoriteDocumentListRequest;
-import org.example.ktigerstudybe.dto.resp.FavoriteDocumentListResponse;
-import org.example.ktigerstudybe.service.favoritedocumentlist.FavoriteDocumentListService;
+import com.example.elisaappbe.dto.req.FavoriteDocumentListRequest;
+import com.example.elisaappbe.dto.resp.FavoriteDocumentListResponse;
+import com.example.elisaappbe.service.favoritedocumentlist.FavoriteDocumentListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

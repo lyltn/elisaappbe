@@ -1,14 +1,14 @@
-package org.example.ktigerstudybe.service.userxp;
+package com.example.elisaappbe.service.userxp;
 
-import org.example.ktigerstudybe.dto.req.UserXPUpdateRequest;
-import org.example.ktigerstudybe.dto.resp.LeaderboardResponse;
-import org.example.ktigerstudybe.dto.resp.UserXPResponse;
-import org.example.ktigerstudybe.model.LevelXP;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.model.UserXP;
-import org.example.ktigerstudybe.repository.LevelXPRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
-import org.example.ktigerstudybe.repository.UserXPRepository;
+import com.example.elisaappbe.dto.req.UserXPUpdateRequest;
+import com.example.elisaappbe.dto.resp.LeaderboardResponse;
+import com.example.elisaappbe.dto.resp.UserXPResponse;
+import com.example.elisaappbe.model.LevelXP;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.model.UserXP;
+import com.example.elisaappbe.repository.LevelXPRepository;
+import com.example.elisaappbe.repository.UserRepository;
+import com.example.elisaappbe.repository.UserXPRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

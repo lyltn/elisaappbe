@@ -1,9 +1,9 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.ktigerstudybe.dto.req.DocumentReportRequest;
-import org.example.ktigerstudybe.dto.resp.DocumentReportResponse;
-import org.example.ktigerstudybe.service.documentReport.DocumentReportService;
+import com.example.elisaappbe.dto.req.DocumentReportRequest;
+import com.example.elisaappbe.dto.resp.DocumentReportResponse;
+import com.example.elisaappbe.service.documentReport.DocumentReportService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,11 +1,11 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.CreateChatConversationRequest;
-import org.example.ktigerstudybe.dto.req.SendChatMessageRequest;
-import org.example.ktigerstudybe.dto.resp.ChatConversationResponse;
-import org.example.ktigerstudybe.dto.resp.ChatMessageResponse;
-import org.example.ktigerstudybe.dto.resp.ChatResponsePair;
-import org.example.ktigerstudybe.service.chat.ChatService;
+import com.example.elisaappbe.dto.req.CreateChatConversationRequest;
+import com.example.elisaappbe.dto.req.SendChatMessageRequest;
+import com.example.elisaappbe.dto.resp.ChatConversationResponse;
+import com.example.elisaappbe.dto.resp.ChatMessageResponse;
+import com.example.elisaappbe.dto.resp.ChatResponsePair;
+import com.example.elisaappbe.service.chat.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

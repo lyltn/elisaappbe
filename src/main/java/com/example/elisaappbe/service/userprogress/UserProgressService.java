@@ -1,6 +1,6 @@
-package org.example.ktigerstudybe.service.userprogress;
+package com.example.elisaappbe.service.userprogress;
 
-import org.example.ktigerstudybe.dto.resp.UserProgressResponse;
+import com.example.elisaappbe.dto.resp.UserProgressResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

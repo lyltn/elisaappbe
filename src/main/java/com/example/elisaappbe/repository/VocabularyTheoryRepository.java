@@ -1,6 +1,6 @@
-package org.example.ktigerstudybe.repository;
+package com.example.elisaappbe.repository;
 
-import org.example.ktigerstudybe.model.VocabularyTheory;
+import com.example.elisaappbe.model.VocabularyTheory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

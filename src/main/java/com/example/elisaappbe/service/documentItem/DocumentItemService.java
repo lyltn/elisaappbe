@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.documentItem;
+package com.example.elisaappbe.service.documentItem;
 
-import org.example.ktigerstudybe.dto.req.DocumentItemRequest;
-import org.example.ktigerstudybe.dto.resp.DocumentItemResponse;
+import com.example.elisaappbe.dto.req.DocumentItemRequest;
+import com.example.elisaappbe.dto.resp.DocumentItemResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

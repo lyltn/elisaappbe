@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.MultipleChoiceQuestionRequest;
-import org.example.ktigerstudybe.dto.resp.MultipleChoiceQuestionResponse;
-import org.example.ktigerstudybe.service.multiplechoicequestion.MultipleChoiceQuestionService;
+import com.example.elisaappbe.dto.req.MultipleChoiceQuestionRequest;
+import com.example.elisaappbe.dto.resp.MultipleChoiceQuestionResponse;
+import com.example.elisaappbe.service.multiplechoicequestion.MultipleChoiceQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

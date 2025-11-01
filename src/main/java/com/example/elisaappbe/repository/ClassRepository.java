@@ -1,6 +1,6 @@
-package org.example.ktigerstudybe.repository;
+package com.example.elisaappbe.repository;
 
-import org.example.ktigerstudybe.model.ClassEntity;
+import com.example.elisaappbe.model.ClassEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

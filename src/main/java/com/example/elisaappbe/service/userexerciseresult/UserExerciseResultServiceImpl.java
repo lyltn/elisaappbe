@@ -1,13 +1,13 @@
-package org.example.ktigerstudybe.service.userexerciseresult;
+package com.example.elisaappbe.service.userexerciseresult;
 
 
-import org.example.ktigerstudybe.dto.req.UserExerciseResultRequest;
-import org.example.ktigerstudybe.dto.resp.UserExerciseResultResponse;
-import org.example.ktigerstudybe.model.Exercise;
-import org.example.ktigerstudybe.model.UserExerciseResult;
-import org.example.ktigerstudybe.repository.ExerciseRepository;
-import org.example.ktigerstudybe.repository.UserExerciseResultRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.dto.req.UserExerciseResultRequest;
+import com.example.elisaappbe.dto.resp.UserExerciseResultResponse;
+import com.example.elisaappbe.model.Exercise;
+import com.example.elisaappbe.model.UserExerciseResult;
+import com.example.elisaappbe.repository.ExerciseRepository;
+import com.example.elisaappbe.repository.UserExerciseResultRepository;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

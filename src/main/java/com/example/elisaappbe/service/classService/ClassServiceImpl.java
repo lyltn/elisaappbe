@@ -1,11 +1,11 @@
-package org.example.ktigerstudybe.service.classService;
+package com.example.elisaappbe.service.classService;
 
-import org.example.ktigerstudybe.dto.req.ClassRequest;
-import org.example.ktigerstudybe.dto.resp.ClassResponse;
-import org.example.ktigerstudybe.model.ClassEntity;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.repository.ClassRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.dto.req.ClassRequest;
+import com.example.elisaappbe.dto.resp.ClassResponse;
+import com.example.elisaappbe.model.ClassEntity;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.repository.ClassRepository;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

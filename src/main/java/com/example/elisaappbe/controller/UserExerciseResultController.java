@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.UserExerciseResultRequest;
-import org.example.ktigerstudybe.dto.resp.UserExerciseResultResponse;
-import org.example.ktigerstudybe.service.userexerciseresult.UserExerciseResultService;
+import com.example.elisaappbe.dto.req.UserExerciseResultRequest;
+import com.example.elisaappbe.dto.resp.UserExerciseResultResponse;
+import com.example.elisaappbe.service.userexerciseresult.UserExerciseResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

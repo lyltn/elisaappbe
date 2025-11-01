@@ -1,4 +1,4 @@
-package org.example.ktigerstudybe.dto.req;
+package com.example.elisaappbe.dto.req;
 
 import lombok.Data;
 import java.time.LocalDate;

@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.VocabularyTheoryRequest;
-import org.example.ktigerstudybe.dto.resp.VocabularyTheoryResponse;
-import org.example.ktigerstudybe.service.vocabularyTheory.VocabularyTheoryService;
+import com.example.elisaappbe.dto.req.VocabularyTheoryRequest;
+import com.example.elisaappbe.dto.resp.VocabularyTheoryResponse;
+import com.example.elisaappbe.service.vocabularyTheory.VocabularyTheoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

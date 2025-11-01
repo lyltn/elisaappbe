@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.repository;
+package com.example.elisaappbe.repository;
 
 import jakarta.transaction.Transactional;
-import org.example.ktigerstudybe.model.FavoriteDocumentList;
+import com.example.elisaappbe.model.FavoriteDocumentList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

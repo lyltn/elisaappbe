@@ -1,14 +1,14 @@
-package org.example.ktigerstudybe.service.documentReport;
+package com.example.elisaappbe.service.documentReport;
 
 import lombok.RequiredArgsConstructor;
-import org.example.ktigerstudybe.dto.req.DocumentReportRequest;
-import org.example.ktigerstudybe.dto.resp.DocumentReportResponse;
-import org.example.ktigerstudybe.model.DocumentList;
-import org.example.ktigerstudybe.model.DocumentReport;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.repository.DocumentListRepository;
-import org.example.ktigerstudybe.repository.DocumentReportRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.dto.req.DocumentReportRequest;
+import com.example.elisaappbe.dto.resp.DocumentReportResponse;
+import com.example.elisaappbe.model.DocumentList;
+import com.example.elisaappbe.model.DocumentReport;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.repository.DocumentListRepository;
+import com.example.elisaappbe.repository.DocumentReportRepository;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

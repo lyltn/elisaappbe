@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.email;
+package com.example.elisaappbe.service.email;
 
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

@@ -1,12 +1,12 @@
-package org.example.ktigerstudybe.service.vocabularyTheory;
+package com.example.elisaappbe.service.vocabularyTheory;
 
-import org.example.ktigerstudybe.dto.req.VocabularyTheoryRequest;
-import org.example.ktigerstudybe.dto.resp.VocabularyTheoryResponse;
-import org.example.ktigerstudybe.model.Lesson;
-import org.example.ktigerstudybe.model.VocabularyTheory;
-import org.example.ktigerstudybe.repository.LessonRepository;
-import org.example.ktigerstudybe.repository.LevelRepository;
-import org.example.ktigerstudybe.repository.VocabularyTheoryRepository;
+import com.example.elisaappbe.dto.req.VocabularyTheoryRequest;
+import com.example.elisaappbe.dto.resp.VocabularyTheoryResponse;
+import com.example.elisaappbe.model.Lesson;
+import com.example.elisaappbe.model.VocabularyTheory;
+import com.example.elisaappbe.repository.LessonRepository;
+import com.example.elisaappbe.repository.LevelRepository;
+import com.example.elisaappbe.repository.VocabularyTheoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;

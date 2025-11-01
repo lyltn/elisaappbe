@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.vocabularyTheory;
+package com.example.elisaappbe.service.vocabularyTheory;
 
-import org.example.ktigerstudybe.dto.req.VocabularyTheoryRequest;
-import org.example.ktigerstudybe.dto.resp.VocabularyTheoryResponse;
+import com.example.elisaappbe.dto.req.VocabularyTheoryRequest;
+import com.example.elisaappbe.dto.resp.VocabularyTheoryResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

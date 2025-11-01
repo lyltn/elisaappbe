@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.sentencerewritingquestion;
+package com.example.elisaappbe.service.sentencerewritingquestion;
 
-import org.example.ktigerstudybe.dto.req.SentenceRewritingQuestionRequest;
-import org.example.ktigerstudybe.dto.resp.SentenceRewritingQuestionResponse;
+import com.example.elisaappbe.dto.req.SentenceRewritingQuestionRequest;
+import com.example.elisaappbe.dto.resp.SentenceRewritingQuestionResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

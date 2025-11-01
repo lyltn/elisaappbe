@@ -1,9 +1,9 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.ClassUserRequest;
-import org.example.ktigerstudybe.dto.resp.ClassUserResponse;
-import org.example.ktigerstudybe.service.classService.ClassService;
-import org.example.ktigerstudybe.service.classUser.ClassUserService;
+import com.example.elisaappbe.dto.req.ClassUserRequest;
+import com.example.elisaappbe.dto.resp.ClassUserResponse;
+import com.example.elisaappbe.service.classService.ClassService;
+import com.example.elisaappbe.service.classUser.ClassUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

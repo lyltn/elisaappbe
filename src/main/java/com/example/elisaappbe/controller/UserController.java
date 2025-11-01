@@ -1,11 +1,11 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.ChangePasswordRequest;
-import org.example.ktigerstudybe.dto.req.ForgotPasswordRequest;
-import org.example.ktigerstudybe.dto.req.UserRequest;
-import org.example.ktigerstudybe.dto.resp.UserResponse;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.service.user.UserService;
+import com.example.elisaappbe.dto.req.ChangePasswordRequest;
+import com.example.elisaappbe.dto.req.ForgotPasswordRequest;
+import com.example.elisaappbe.dto.req.UserRequest;
+import com.example.elisaappbe.dto.resp.UserResponse;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

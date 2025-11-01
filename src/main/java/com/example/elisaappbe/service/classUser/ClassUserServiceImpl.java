@@ -1,13 +1,13 @@
-package org.example.ktigerstudybe.service.classUser;
+package com.example.elisaappbe.service.classUser;
 
-import org.example.ktigerstudybe.dto.req.ClassUserRequest;
-import org.example.ktigerstudybe.dto.resp.ClassUserResponse;
-import org.example.ktigerstudybe.model.ClassEntity;
-import org.example.ktigerstudybe.model.ClassUser;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.repository.ClassRepository;
-import org.example.ktigerstudybe.repository.ClassUserRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.dto.req.ClassUserRequest;
+import com.example.elisaappbe.dto.resp.ClassUserResponse;
+import com.example.elisaappbe.model.ClassEntity;
+import com.example.elisaappbe.model.ClassUser;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.repository.ClassRepository;
+import com.example.elisaappbe.repository.ClassUserRepository;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

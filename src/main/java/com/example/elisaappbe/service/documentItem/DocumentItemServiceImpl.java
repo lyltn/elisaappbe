@@ -1,11 +1,11 @@
-package org.example.ktigerstudybe.service.documentItem;
+package com.example.elisaappbe.service.documentItem;
 
-import org.example.ktigerstudybe.dto.req.DocumentItemRequest;
-import org.example.ktigerstudybe.dto.resp.DocumentItemResponse;
-import org.example.ktigerstudybe.model.DocumentItem;
-import org.example.ktigerstudybe.model.DocumentList;
-import org.example.ktigerstudybe.repository.DocumentItemRepository;
-import org.example.ktigerstudybe.repository.DocumentListRepository;
+import com.example.elisaappbe.dto.req.DocumentItemRequest;
+import com.example.elisaappbe.dto.resp.DocumentItemResponse;
+import com.example.elisaappbe.model.DocumentItem;
+import com.example.elisaappbe.model.DocumentList;
+import com.example.elisaappbe.repository.DocumentItemRepository;
+import com.example.elisaappbe.repository.DocumentListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

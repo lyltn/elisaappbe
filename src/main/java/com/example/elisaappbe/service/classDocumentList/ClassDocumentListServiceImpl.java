@@ -1,14 +1,14 @@
 // src/main/java/org/example/ktigerstudybe/service/classDocumentList/ClassDocumentListServiceImpl.java
-package org.example.ktigerstudybe.service.classDocumentList;
+package com.example.elisaappbe.service.classDocumentList;
 
-import org.example.ktigerstudybe.dto.req.ClassDocumentListRequest;
-import org.example.ktigerstudybe.dto.resp.ClassDocumentListResponse;
-import org.example.ktigerstudybe.model.ClassDocumentList;
-import org.example.ktigerstudybe.model.ClassEntity;
-import org.example.ktigerstudybe.model.DocumentList;
-import org.example.ktigerstudybe.repository.ClassDocumentListRepository;
-import org.example.ktigerstudybe.repository.ClassRepository;
-import org.example.ktigerstudybe.repository.DocumentListRepository;
+import com.example.elisaappbe.dto.req.ClassDocumentListRequest;
+import com.example.elisaappbe.dto.resp.ClassDocumentListResponse;
+import com.example.elisaappbe.model.ClassDocumentList;
+import com.example.elisaappbe.model.ClassEntity;
+import com.example.elisaappbe.model.DocumentList;
+import com.example.elisaappbe.repository.ClassDocumentListRepository;
+import com.example.elisaappbe.repository.ClassRepository;
+import com.example.elisaappbe.repository.DocumentListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

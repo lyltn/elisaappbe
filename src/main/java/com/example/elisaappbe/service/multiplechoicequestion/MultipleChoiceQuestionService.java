@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.service.multiplechoicequestion;
+package com.example.elisaappbe.service.multiplechoicequestion;
 
 
-import org.example.ktigerstudybe.dto.req.MultipleChoiceQuestionRequest;
-import org.example.ktigerstudybe.dto.resp.MultipleChoiceQuestionResponse;
+import com.example.elisaappbe.dto.req.MultipleChoiceQuestionRequest;
+import com.example.elisaappbe.dto.resp.MultipleChoiceQuestionResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

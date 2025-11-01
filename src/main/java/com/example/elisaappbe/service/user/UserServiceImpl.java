@@ -1,11 +1,11 @@
-package org.example.ktigerstudybe.service.user;
+package com.example.elisaappbe.service.user;
 
-import org.example.ktigerstudybe.dto.req.ChangePasswordRequest;
-import org.example.ktigerstudybe.dto.req.UserRequest;
-import org.example.ktigerstudybe.dto.resp.UserResponse;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.repository.PasswordResetTokenRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.dto.req.ChangePasswordRequest;
+import com.example.elisaappbe.dto.req.UserRequest;
+import com.example.elisaappbe.dto.resp.UserResponse;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.repository.PasswordResetTokenRepository;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

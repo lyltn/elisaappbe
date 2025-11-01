@@ -1,13 +1,13 @@
-package org.example.ktigerstudybe.service.favoritedocumentlist;
+package com.example.elisaappbe.service.favoritedocumentlist;
 
-import org.example.ktigerstudybe.dto.req.FavoriteDocumentListRequest;
-import org.example.ktigerstudybe.dto.resp.FavoriteDocumentListResponse;
-import org.example.ktigerstudybe.model.DocumentList;
-import org.example.ktigerstudybe.model.FavoriteDocumentList;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.repository.DocumentListRepository;
-import org.example.ktigerstudybe.repository.FavoriteDocumentListRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.dto.req.FavoriteDocumentListRequest;
+import com.example.elisaappbe.dto.resp.FavoriteDocumentListResponse;
+import com.example.elisaappbe.model.DocumentList;
+import com.example.elisaappbe.model.FavoriteDocumentList;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.repository.DocumentListRepository;
+import com.example.elisaappbe.repository.FavoriteDocumentListRepository;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

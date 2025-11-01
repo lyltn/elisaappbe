@@ -1,8 +1,8 @@
 // src/main/java/org/example/ktigerstudybe/repository/DocumentListRepository.java
-package org.example.ktigerstudybe.repository;
+package com.example.elisaappbe.repository;
 
 import jakarta.transaction.Transactional;
-import org.example.ktigerstudybe.model.DocumentList;
+import com.example.elisaappbe.model.DocumentList;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Range;

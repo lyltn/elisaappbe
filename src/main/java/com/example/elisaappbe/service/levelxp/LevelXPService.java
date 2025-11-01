@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.levelxp;
+package com.example.elisaappbe.service.levelxp;
 
-import org.example.ktigerstudybe.dto.req.LevelXPRequest;
-import org.example.ktigerstudybe.dto.resp.LevelXPResponse;
+import com.example.elisaappbe.dto.req.LevelXPRequest;
+import com.example.elisaappbe.dto.resp.LevelXPResponse;
 
 import java.util.List;
 

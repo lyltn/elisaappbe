@@ -1,12 +1,12 @@
-package org.example.ktigerstudybe.service.userprogress;
+package com.example.elisaappbe.service.userprogress;
 
-import org.example.ktigerstudybe.dto.resp.UserProgressResponse;
-import org.example.ktigerstudybe.model.Lesson;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.model.UserProgress;
-import org.example.ktigerstudybe.repository.LessonRepository;
-import org.example.ktigerstudybe.repository.UserProgressRepository;
-import org.example.ktigerstudybe.repository.UserRepository;
+import com.example.elisaappbe.dto.resp.UserProgressResponse;
+import com.example.elisaappbe.model.Lesson;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.model.UserProgress;
+import com.example.elisaappbe.repository.LessonRepository;
+import com.example.elisaappbe.repository.UserProgressRepository;
+import com.example.elisaappbe.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

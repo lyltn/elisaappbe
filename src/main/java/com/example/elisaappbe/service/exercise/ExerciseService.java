@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.exercise;
+package com.example.elisaappbe.service.exercise;
 
-import org.example.ktigerstudybe.dto.req.ExerciseRequest;
-import org.example.ktigerstudybe.dto.resp.ExerciseResponse;
+import com.example.elisaappbe.dto.req.ExerciseRequest;
+import com.example.elisaappbe.dto.resp.ExerciseResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

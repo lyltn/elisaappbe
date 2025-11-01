@@ -1,6 +1,6 @@
-package org.example.ktigerstudybe.repository;
+package com.example.elisaappbe.repository;
 
-import org.example.ktigerstudybe.model.Level;
+import com.example.elisaappbe.model.Level;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LevelRepository extends JpaRepository<Level, Long> {

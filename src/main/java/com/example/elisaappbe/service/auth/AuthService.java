@@ -1,10 +1,10 @@
-package org.example.ktigerstudybe.service.auth;
+package com.example.elisaappbe.service.auth;
 
-import org.example.ktigerstudybe.dto.req.GoogleSignInRequest;
-import org.example.ktigerstudybe.dto.req.SignInRequest;
-import org.example.ktigerstudybe.dto.req.SignUpRequest;
-import org.example.ktigerstudybe.dto.resp.AuthResponse;
-import org.example.ktigerstudybe.dto.resp.GoogleSignInResponse;
+import com.example.elisaappbe.dto.req.GoogleSignInRequest;
+import com.example.elisaappbe.dto.req.SignInRequest;
+import com.example.elisaappbe.dto.req.SignUpRequest;
+import com.example.elisaappbe.dto.resp.AuthResponse;
+import com.example.elisaappbe.dto.resp.GoogleSignInResponse;
 
 public interface AuthService {
     AuthResponse signUp(SignUpRequest request);

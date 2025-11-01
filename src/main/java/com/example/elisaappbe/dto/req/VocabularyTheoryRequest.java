@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.dto.req;
+package com.example.elisaappbe.dto.req;
 
 import lombok.Data;
-import org.example.ktigerstudybe.model.Lesson;
+import com.example.elisaappbe.model.Lesson;
 
 @Data
 public class VocabularyTheoryRequest {

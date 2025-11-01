@@ -1,4 +1,4 @@
-package org.example.ktigerstudybe.dto.resp;
+package com.example.elisaappbe.dto.resp;
 
 public class ChatResponsePair {
     private ChatMessageResponse userMessage;

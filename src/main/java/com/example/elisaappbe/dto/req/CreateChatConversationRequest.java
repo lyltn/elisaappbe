@@ -1,4 +1,4 @@
-package org.example.ktigerstudybe.dto.req;
+package com.example.elisaappbe.dto.req;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

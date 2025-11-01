@@ -1,6 +1,6 @@
-package org.example.ktigerstudybe.repository;
+package com.example.elisaappbe.repository;
 
-import org.example.ktigerstudybe.model.DocumentReport;
+import com.example.elisaappbe.model.DocumentReport;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Page;

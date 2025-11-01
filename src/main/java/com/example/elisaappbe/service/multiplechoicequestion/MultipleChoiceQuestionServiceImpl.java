@@ -1,11 +1,11 @@
-package org.example.ktigerstudybe.service.multiplechoicequestion;
+package com.example.elisaappbe.service.multiplechoicequestion;
 
-import org.example.ktigerstudybe.dto.req.MultipleChoiceQuestionRequest;
-import org.example.ktigerstudybe.dto.resp.MultipleChoiceQuestionResponse;
-import org.example.ktigerstudybe.model.Exercise;
-import org.example.ktigerstudybe.model.MultipleChoiceQuestion;
-import org.example.ktigerstudybe.repository.ExerciseRepository;
-import org.example.ktigerstudybe.repository.MultipleChoiceQuestionRepository;
+import com.example.elisaappbe.dto.req.MultipleChoiceQuestionRequest;
+import com.example.elisaappbe.dto.resp.MultipleChoiceQuestionResponse;
+import com.example.elisaappbe.model.Exercise;
+import com.example.elisaappbe.model.MultipleChoiceQuestion;
+import com.example.elisaappbe.repository.ExerciseRepository;
+import com.example.elisaappbe.repository.MultipleChoiceQuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;

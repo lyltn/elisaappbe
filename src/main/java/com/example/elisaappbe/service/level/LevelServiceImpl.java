@@ -1,10 +1,10 @@
-package org.example.ktigerstudybe.service.level;
+package com.example.elisaappbe.service.level;
 
 
-import org.example.ktigerstudybe.dto.req.LevelRequest;
-import org.example.ktigerstudybe.dto.resp.LevelResponse;
-import org.example.ktigerstudybe.model.Level;
-import org.example.ktigerstudybe.repository.LevelRepository;
+import com.example.elisaappbe.dto.req.LevelRequest;
+import com.example.elisaappbe.dto.resp.LevelResponse;
+import com.example.elisaappbe.model.Level;
+import com.example.elisaappbe.repository.LevelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

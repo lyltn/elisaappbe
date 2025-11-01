@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.service.userxp;
+package com.example.elisaappbe.service.userxp;
 
-import org.example.ktigerstudybe.dto.req.UserXPUpdateRequest;
-import org.example.ktigerstudybe.dto.resp.LeaderboardResponse;
-import org.example.ktigerstudybe.dto.resp.UserXPResponse;
+import com.example.elisaappbe.dto.req.UserXPUpdateRequest;
+import com.example.elisaappbe.dto.resp.LeaderboardResponse;
+import com.example.elisaappbe.dto.resp.UserXPResponse;
 
 import java.util.List;
 

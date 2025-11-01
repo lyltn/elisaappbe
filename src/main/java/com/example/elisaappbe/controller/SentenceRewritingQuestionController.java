@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.SentenceRewritingQuestionRequest;
-import org.example.ktigerstudybe.dto.resp.SentenceRewritingQuestionResponse;
-import org.example.ktigerstudybe.service.sentencerewritingquestion.SentenceRewritingQuestionService;
+import com.example.elisaappbe.dto.req.SentenceRewritingQuestionRequest;
+import com.example.elisaappbe.dto.resp.SentenceRewritingQuestionResponse;
+import com.example.elisaappbe.service.sentencerewritingquestion.SentenceRewritingQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

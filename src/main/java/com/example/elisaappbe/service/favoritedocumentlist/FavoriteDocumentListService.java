@@ -1,7 +1,7 @@
-package org.example.ktigerstudybe.service.favoritedocumentlist;
+package com.example.elisaappbe.service.favoritedocumentlist;
 
-import org.example.ktigerstudybe.dto.req.FavoriteDocumentListRequest;
-import org.example.ktigerstudybe.dto.resp.FavoriteDocumentListResponse;
+import com.example.elisaappbe.dto.req.FavoriteDocumentListRequest;
+import com.example.elisaappbe.dto.resp.FavoriteDocumentListResponse;
 
 import java.util.List;
 import java.util.Optional;

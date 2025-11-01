@@ -1,4 +1,4 @@
-package org.example.ktigerstudybe.service.email;
+package com.example.elisaappbe.service.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

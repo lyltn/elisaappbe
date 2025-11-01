@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.service.userexerciseresult;
+package com.example.elisaappbe.service.userexerciseresult;
 
-import org.example.ktigerstudybe.dto.req.UserExerciseResultRequest;
-import org.example.ktigerstudybe.dto.resp.UserExerciseResultResponse;
-import org.example.ktigerstudybe.model.UserExerciseResult;
+import com.example.elisaappbe.dto.req.UserExerciseResultRequest;
+import com.example.elisaappbe.dto.resp.UserExerciseResultResponse;
+import com.example.elisaappbe.model.UserExerciseResult;
 
 import java.util.List;
 

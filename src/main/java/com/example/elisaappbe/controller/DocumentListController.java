@@ -1,9 +1,9 @@
 // src/main/java/org/example/ktigerstudybe/controller/DocumentListController.java
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.DocumentListRequest;
-import org.example.ktigerstudybe.dto.resp.DocumentListResponse;
-import org.example.ktigerstudybe.service.documentList.DocumentListService;
+import com.example.elisaappbe.dto.req.DocumentListRequest;
+import com.example.elisaappbe.dto.resp.DocumentListResponse;
+import com.example.elisaappbe.service.documentList.DocumentListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

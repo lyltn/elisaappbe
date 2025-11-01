@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.GrammarTheoryRequest;
-import org.example.ktigerstudybe.dto.resp.GrammarTheoryResponse;
-import org.example.ktigerstudybe.service.grammarTheory.GrammarTheoryService;
+import com.example.elisaappbe.dto.req.GrammarTheoryRequest;
+import com.example.elisaappbe.dto.resp.GrammarTheoryResponse;
+import com.example.elisaappbe.service.grammarTheory.GrammarTheoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

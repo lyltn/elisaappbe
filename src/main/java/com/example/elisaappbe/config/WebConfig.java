@@ -1,4 +1,4 @@
-package org.example.ktigerstudybe.config;
+package com.example.elisaappbe.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

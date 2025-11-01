@@ -1,9 +1,9 @@
-package org.example.ktigerstudybe.controller;
+package com.example.elisaappbe.controller;
 
-import org.example.ktigerstudybe.dto.req.UserXPUpdateRequest;
-import org.example.ktigerstudybe.dto.resp.LeaderboardResponse;
-import org.example.ktigerstudybe.dto.resp.UserXPResponse;
-import org.example.ktigerstudybe.service.userxp.UserXPService;
+import com.example.elisaappbe.dto.req.UserXPUpdateRequest;
+import com.example.elisaappbe.dto.resp.LeaderboardResponse;
+import com.example.elisaappbe.dto.resp.UserXPResponse;
+import com.example.elisaappbe.service.userxp.UserXPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

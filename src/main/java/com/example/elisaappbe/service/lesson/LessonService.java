@@ -1,8 +1,8 @@
-package org.example.ktigerstudybe.service.lesson;
+package com.example.elisaappbe.service.lesson;
 
-import org.example.ktigerstudybe.dto.req.LessonRequest;
-import org.example.ktigerstudybe.dto.resp.LessonResponse;
-import org.example.ktigerstudybe.dto.resp.LessonWithProgressResponse;
+import com.example.elisaappbe.dto.req.LessonRequest;
+import com.example.elisaappbe.dto.resp.LessonResponse;
+import com.example.elisaappbe.dto.resp.LessonWithProgressResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

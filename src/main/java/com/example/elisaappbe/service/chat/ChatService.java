@@ -1,10 +1,10 @@
-package org.example.ktigerstudybe.service.chat;
+package com.example.elisaappbe.service.chat;
 
-import org.example.ktigerstudybe.dto.req.CreateChatConversationRequest;
-import org.example.ktigerstudybe.dto.req.SendChatMessageRequest;
-import org.example.ktigerstudybe.dto.resp.ChatConversationResponse;
-import org.example.ktigerstudybe.dto.resp.ChatMessageResponse;
-import org.example.ktigerstudybe.dto.resp.ChatResponsePair;
+import com.example.elisaappbe.dto.req.CreateChatConversationRequest;
+import com.example.elisaappbe.dto.req.SendChatMessageRequest;
+import com.example.elisaappbe.dto.resp.ChatConversationResponse;
+import com.example.elisaappbe.dto.resp.ChatMessageResponse;
+import com.example.elisaappbe.dto.resp.ChatResponsePair;
 
 import java.util.List;
 

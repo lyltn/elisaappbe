@@ -1,24 +1,24 @@
-package org.example.ktigerstudybe.service.auth;
+package com.example.elisaappbe.service.auth;
 
-import org.example.ktigerstudybe.model.PasswordResetToken;
-import org.example.ktigerstudybe.repository.PasswordResetTokenRepository;
-import org.example.ktigerstudybe.service.email.EmailService;
+import com.example.elisaappbe.model.PasswordResetToken;
+import com.example.elisaappbe.repository.PasswordResetTokenRepository;
+import com.example.elisaappbe.service.email.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.example.ktigerstudybe.dto.req.SignInRequest;
-import org.example.ktigerstudybe.dto.req.SignUpRequest;
-import org.example.ktigerstudybe.dto.resp.AuthResponse;
-import org.example.ktigerstudybe.model.User;
-import org.example.ktigerstudybe.repository.UserRepository;
-import org.example.ktigerstudybe.service.auth.AuthService;
-import org.example.ktigerstudybe.service.userxp.UserXPService;
+import com.example.elisaappbe.dto.req.SignInRequest;
+import com.example.elisaappbe.dto.req.SignUpRequest;
+import com.example.elisaappbe.dto.resp.AuthResponse;
+import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.repository.UserRepository;
+import com.example.elisaappbe.service.auth.AuthService;
+import com.example.elisaappbe.service.userxp.UserXPService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
-import org.example.ktigerstudybe.dto.resp.GoogleSignInResponse;
-import org.example.ktigerstudybe.dto.req.GoogleSignInRequest;
+import com.example.elisaappbe.dto.resp.GoogleSignInResponse;
+import com.example.elisaappbe.dto.req.GoogleSignInRequest;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

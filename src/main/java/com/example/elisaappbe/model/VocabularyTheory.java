@@ -1,4 +1,4 @@
-package org.example.ktigerstudybe.model;
+package com.example.elisaappbe.model;
 
 
 import jakarta.persistence.*;

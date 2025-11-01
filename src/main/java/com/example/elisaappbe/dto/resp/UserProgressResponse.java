@@ -1,4 +1,4 @@
-package org.example.ktigerstudybe.dto.resp;
+package com.example.elisaappbe.dto.resp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
