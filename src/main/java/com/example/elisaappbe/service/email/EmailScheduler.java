@@ -25,8 +25,8 @@ public class EmailScheduler {
             try {
                 emailService.sendSimpleEmail(
                         user.getEmail(),
-                        "⏰ Nhắc học tiếng Hàn hôm nay",
-                        "Chào " + user.getFullName() + ", đừng quên luyện tập tiếng Hàn hôm nay nhé!"
+                        "⏰ Nhắc học Tiếng Anh hôm nay",
+                        "Chào " + user.getFullName() + ", đừng quên luyện tập Tiếng Anh hôm nay nhé!"
                 );
                 System.out.println("✅ Sent to: " + user.getEmail());
             } catch (Exception e) {

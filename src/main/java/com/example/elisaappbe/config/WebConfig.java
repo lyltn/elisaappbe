@@ -13,7 +13,12 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:5173")
+                        .allowedOrigins(
+                                "http://localhost:5173",  // cho front-end (ReactJs)
+                                "http://10.0.2.2:8080",  //  cho Android Emulator
+                                "http://127.0.0.1:8080",  // cho iOS Simulator
+                                "http://localhost:8080"
+                        )
                         .allowedMethods("*");
             }
         };
