@@ -2,6 +2,7 @@ package com.example.elisaappbe.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -51,6 +52,15 @@ public class User {
 
     @Column(name = "UserName")
     private String userName;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private EnglishUserProgress currentProgress;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private EnglishUserXP englishUserXP;
+
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<EnglishLesson> createdLessons;
 
 
 }
