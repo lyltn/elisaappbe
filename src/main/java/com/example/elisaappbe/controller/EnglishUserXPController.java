@@ -2,12 +2,15 @@ package com.example.elisaappbe.controller;
 
 import com.example.elisaappbe.dto.req.EnglishUserProgressRequest;
 import com.example.elisaappbe.dto.req.EnglishUserXPRequest;
+import com.example.elisaappbe.dto.resp.EnglishRankingUserResponse;
 import com.example.elisaappbe.dto.resp.EnglishUserProgressResponse;
 import com.example.elisaappbe.dto.resp.EnglishUserXPResponse;
 import com.example.elisaappbe.service.englishUserXP.EnglishUserXPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/english-user-xp")
@@ -30,5 +33,10 @@ public class EnglishUserXPController {
     public ResponseEntity<EnglishUserXPResponse> createUserProgress(@PathVariable Long id) {
         EnglishUserXPResponse response = userXPService.createUserXP(id);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/ranking")
+    public List<EnglishRankingUserResponse> getUserXPByUserId() {
+        return userXPService.getRankingUserXP();
     }
 }
