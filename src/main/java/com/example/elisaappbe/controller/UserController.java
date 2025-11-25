@@ -1,16 +1,20 @@
 package com.example.elisaappbe.controller;
 
 import com.example.elisaappbe.dto.req.ChangePasswordRequest;
+import com.example.elisaappbe.dto.req.EnglishUserProfileRequest;
 import com.example.elisaappbe.dto.req.ForgotPasswordRequest;
 import com.example.elisaappbe.dto.req.UserRequest;
 import com.example.elisaappbe.dto.resp.UserResponse;
 import com.example.elisaappbe.model.User;
+import com.example.elisaappbe.service.cloud.CloudinaryService;
 import com.example.elisaappbe.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +27,9 @@ public class UserController {
 
   @Autowired
   private UserService userService;
+
+  @Autowired
+  private CloudinaryService cloudService;
 
   // Lấy tất cả user có role = "user" (có phân trang)
   @GetMapping("/learners")
@@ -68,6 +75,30 @@ public class UserController {
       return ResponseEntity.notFound().build();
     }
   }
+
+    // Cập nhật user
+    @PutMapping("/update-profile")
+    public ResponseEntity<UserResponse> updateUserProfile(@RequestBody EnglishUserProfileRequest request) {
+        try {
+            UserResponse updated = userService.updateProfileUser(request);
+            return ResponseEntity.ok(updated);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    // Cập nhật Avatar User
+    @PostMapping(value = "/update-avatar/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<UserResponse> updateAvatarUser(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
+        try {
+            String publicId = "elisa_avatar_user_" + id;
+            String avatarUrl = cloudService.uploadFile(file,publicId);
+            UserResponse updated = userService.updateAvatar(id,avatarUrl );
+            return ResponseEntity.ok(updated);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
   // Xóa user
   @DeleteMapping("/{id}")

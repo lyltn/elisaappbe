@@ -1,6 +1,7 @@
 package com.example.elisaappbe.service.user;
 
 import com.example.elisaappbe.dto.req.ChangePasswordRequest;
+import com.example.elisaappbe.dto.req.EnglishUserProfileRequest;
 import com.example.elisaappbe.dto.req.ForgotPasswordRequest;
 import com.example.elisaappbe.dto.req.UserRequest;
 import com.example.elisaappbe.dto.resp.UserResponse;
@@ -22,6 +23,12 @@ public interface UserService {
 
 	// Cập nhật user
 	UserResponse updateUser(Long id, UserRequest request);
+
+    // Cập nhật UserProfile
+    UserResponse updateProfileUser(EnglishUserProfileRequest request);
+
+    // Cập nhật Avatar
+    UserResponse updateAvatar(Long id, String url);
 
 	// Xóa user
 	void deleteUser(Long id);

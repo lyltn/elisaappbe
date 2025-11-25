@@ -1,6 +1,7 @@
 package com.example.elisaappbe.service.user;
 
 import com.example.elisaappbe.dto.req.ChangePasswordRequest;
+import com.example.elisaappbe.dto.req.EnglishUserProfileRequest;
 import com.example.elisaappbe.dto.req.UserRequest;
 import com.example.elisaappbe.dto.resp.UserResponse;
 import com.example.elisaappbe.model.User;
@@ -91,7 +92,29 @@ public class UserServiceImpl implements UserService {
     return toResponse(user);
   }
 
-  @Override
+    @Override
+    public UserResponse updateProfileUser(EnglishUserProfileRequest request) {
+        User user = userRepository.findById(request.getUserId())
+                .orElseThrow(() -> new NoSuchElementException("User not found with id: " + request.getUserId()));
+        user.setFullName(request.getFullName());
+        user.setEmail(request.getEmail());
+        user.setGender(request.getGender());
+        user.setDateOfBirth(request.getDateOfBirth());
+        User saved = userRepository.save(user);
+        return toResponse(saved);
+    }
+
+    @Override
+    public UserResponse updateAvatar(Long id, String avatarUrl) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("User not found with id: " + id));
+        user.setAvatarImage(avatarUrl);
+
+        User saved = userRepository.save(user);
+        return  toResponse(saved);
+    }
+
+    @Override
   public void deleteUser(Long id) {
     userRepository.deleteById(id);
   }

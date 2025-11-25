@@ -47,6 +47,7 @@ public class AuthServiceImpl implements AuthService {
         User user = new User();
         user.setFullName(request.getFullName());
         user.setEmail(request.getEmail());
+        user.setAvatarImage("https://res.cloudinary.com/dj4hbfwj9/image/upload/v1763995944/logo_Elisa.png");
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole("USER");
         user.setUserStatus(1); // ✅ NEW: Set active status for new users (1 = active)

@@ -37,8 +37,8 @@ public class EnglishUserXPServiceImpl implements EnglishUserXPService{
                     userXP.getUser().getUserId(),
                     userXP.getCurrentAchievement().getAchievementId(),
                     userXP.getCurrentAchievement().getTitle(),
-                    userXP.getCurrentAchievement().getIconUrl(),
                     userXP.getCurrentAchievement().getDescription(),
+                    userXP.getCurrentAchievement().getIconUrl(),
                     userXP.getTotalXP()
             );
         }
