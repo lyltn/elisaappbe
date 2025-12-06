@@ -34,4 +34,13 @@ public class EnglishExercise {
 
     @OneToMany(mappedBy = "englishExercise", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EnglishMultipleChoiceQuestion> multipleChoiceQuestions;
+
+    @OneToMany(mappedBy = "englishExercise", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EnglishListeningDictation> listeningDictation;
+
+    @OneToMany(mappedBy = "englishExercise", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EnglishClozeExercise> clozeExercise;
+
+    @OneToMany(mappedBy = "englishExercise", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EnglishOrderingExercise> orderingExercise;
 }
