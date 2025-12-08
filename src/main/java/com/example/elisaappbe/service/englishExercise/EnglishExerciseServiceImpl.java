@@ -2,14 +2,8 @@ package com.example.elisaappbe.service.englishExercise;
 
 import com.example.elisaappbe.dto.req.EnglishMultipleChoiceRequest;
 import com.example.elisaappbe.dto.req.EnglishSentenceRewritingRequest;
-import com.example.elisaappbe.dto.resp.EnglishExerciseResponse;
-import com.example.elisaappbe.dto.resp.EnglishGrammarTheoryResponse;
-import com.example.elisaappbe.dto.resp.EnglishMultipleChoiceResponse;
-import com.example.elisaappbe.dto.resp.EnglishSentenceRewritingResponse;
-import com.example.elisaappbe.model.EnglishExercise;
-import com.example.elisaappbe.model.EnglishGrammarTheory;
-import com.example.elisaappbe.model.EnglishMultipleChoiceQuestion;
-import com.example.elisaappbe.model.EnglishSentenceRewritingQuestion;
+import com.example.elisaappbe.dto.resp.*;
+import com.example.elisaappbe.model.*;
 import com.example.elisaappbe.repository.EnglishExerciseRepository;
 import com.example.elisaappbe.repository.EnglishGrammarTheoryRepository;
 import com.example.elisaappbe.repository.EnglishMultipleChoiceQuestionRepository;
@@ -56,6 +50,53 @@ public class EnglishExerciseServiceImpl implements EnglishExerciseService {
         resp.setLinkMedia(vocab.getLinkMedia());
         return resp;
     }
+
+    private EnglishListeningDictationResponse toResponseListeningDictation(EnglishListeningDictation vocab){
+        EnglishListeningDictationResponse resp = new EnglishListeningDictationResponse();
+        resp.setId(vocab.getId());
+        resp.setTitle(vocab.getTitle());
+        resp.setAudioUrl(vocab.getAudioUrl());
+        resp.setTranscript(vocab.getTranscript());
+        resp.setHintText(vocab.getHintText());
+        return resp;
+    }
+
+    private EnglishClozeBlankResponse toResponseClozeBlank(EnglishClozeBlank vocab){
+        EnglishClozeBlankResponse resp = new EnglishClozeBlankResponse();
+        resp.setId(vocab.getId());
+        resp.setBlankIndex(vocab.getBlankIndex());
+        resp.setCorrectAnswer(vocab.getCorrectAnswer());
+        resp.setHint(vocab.getHint());
+        return resp;
+    }
+
+    private EnglishClozeExerciseResponse toResponseClozeExercise(EnglishClozeExercise vocab){
+        EnglishClozeExerciseResponse resp = new EnglishClozeExerciseResponse();
+        resp.setId(vocab.getId());
+        resp.setTitle(vocab.getTitle());
+        resp.setContent(vocab.getContent());
+        resp.setBlanks(vocab.getBlanks().stream().map(this::toResponseClozeBlank).collect(Collectors.toList()));
+        return resp;
+    }
+
+    private EnglishParagraphSegmentResponse toResponseParagraphSegment(EnglishParagraphSegment vocab){
+        EnglishParagraphSegmentResponse resp = new EnglishParagraphSegmentResponse();
+        resp.setId(vocab.getId());
+        resp.setContent(vocab.getContent());
+        resp.setCorrectOrder(vocab.getCorrectOrder());
+        return resp;
+    }
+
+    private EnglishOrderingExerciseResponse toResponseOrderingExercise(EnglishOrderingExercise vocab){
+        EnglishOrderingExerciseResponse resp = new EnglishOrderingExerciseResponse();
+        resp.setId(vocab.getId());
+        resp.setTitle(vocab.getTitle());
+        resp.setHint(vocab.getHint());
+        resp.setParagraphs(vocab.getParagraphs().stream().map(this::toResponseParagraphSegment).collect(Collectors.toList()));
+        return resp;
+    }
+
+
 
 
     @Override
@@ -163,4 +204,52 @@ public class EnglishExerciseServiceImpl implements EnglishExerciseService {
         }
 
     }
+
+    // GET QUESTION FOR CHALLENGE
+
+    @Override
+    public List<EnglishMultipleChoiceResponse> getMultipleChoiceForChallenge(Long lessonId) {
+        EnglishExercise getEnglishExercise = exerciseRepository.findByLessonIdAndType(lessonId,"mc");
+        List<EnglishMultipleChoiceQuestion> listQuestion = getEnglishExercise.getMultipleChoiceQuestions();
+        return  listQuestion.stream()
+                .map(this::toResponseMultiple)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EnglishSentenceRewritingResponse> getSentenceRewritingForChallenge(Long lessonId) {
+        EnglishExercise getEnglishExercise = exerciseRepository.findByLessonIdAndType(lessonId,"sr");
+        List<EnglishSentenceRewritingQuestion> listQuestion = getEnglishExercise.getRewritingQuestions();
+        return listQuestion.stream()
+                .map(this::toResponseSentenceRewriting)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EnglishListeningDictationResponse> getListeningDictationForChallenge(Long lessonId) {
+        EnglishExercise getEnglishExercise = exerciseRepository.findByLessonIdAndType(lessonId,"ld");
+        List<EnglishListeningDictation> listQuestion = getEnglishExercise.getListeningDictation();
+        return listQuestion.stream()
+                .map(this::toResponseListeningDictation)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EnglishClozeExerciseResponse> getClozeForChallenge(Long lessonId) {
+        EnglishExercise getEnglishExercise = exerciseRepository.findByLessonIdAndType(lessonId,"cb");
+        List<EnglishClozeExercise> listQuestion = getEnglishExercise.getClozeExercise();
+        return listQuestion.stream()
+                .map(this::toResponseClozeExercise)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EnglishOrderingExerciseResponse> getOrderingForChallenge(Long lessonId) {
+        EnglishExercise getEnglishExercise = exerciseRepository.findByLessonIdAndType(lessonId,"pa");
+        List<EnglishOrderingExercise> listQuestion = getEnglishExercise.getOrderingExercise();
+        return listQuestion.stream()
+                .map(this::toResponseOrderingExercise)
+                .collect(Collectors.toList());
+    }
+
 }

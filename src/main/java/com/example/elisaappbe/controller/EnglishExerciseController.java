@@ -1,15 +1,9 @@
 package com.example.elisaappbe.controller;
 
-
-import com.example.elisaappbe.dto.req.EnglishGrammarRequest;
 import com.example.elisaappbe.dto.req.EnglishMultipleChoiceRequest;
 import com.example.elisaappbe.dto.req.EnglishSentenceRewritingRequest;
-import com.example.elisaappbe.dto.resp.EnglishExerciseResponse;
-import com.example.elisaappbe.dto.resp.EnglishGrammarTheoryResponse;
-import com.example.elisaappbe.dto.resp.EnglishMultipleChoiceResponse;
-import com.example.elisaappbe.dto.resp.EnglishSentenceRewritingResponse;
+import com.example.elisaappbe.dto.resp.*;
 import com.example.elisaappbe.service.englishExercise.EnglishExerciseService;
-import com.example.elisaappbe.service.englishGrammarTheory.EnglishGrammarTheoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -68,5 +62,31 @@ public class EnglishExerciseController {
         response.put("message", "Xóa ghép câu thành công");
         response.put("deletedId", questionId);
         return ResponseEntity.ok(response);
+    }
+
+    // === FOR CHALLENGE ===
+    @GetMapping("/challenge/multiple/{lessonId}")
+    public List<EnglishMultipleChoiceResponse> getMultipleChoiceForChallenge(@PathVariable Long lessonId){
+        return exerciseService.getMultipleChoiceForChallenge(lessonId);
+    }
+
+    @GetMapping("/challenge/sentence-rewriting/{lessonId}")
+    public List<EnglishSentenceRewritingResponse> getSentenceRewritingForChallenge(@PathVariable Long lessonId){
+        return exerciseService.getSentenceRewritingForChallenge(lessonId);
+    }
+
+    @GetMapping("/challenge/listening-dictation/{lessonId}")
+    public List<EnglishListeningDictationResponse> getListeningDictationForChallenge(@PathVariable Long lessonId){
+        return exerciseService.getListeningDictationForChallenge(lessonId);
+    }
+
+    @GetMapping("/challenge/cloze/{lessonId}")
+    public List<EnglishClozeExerciseResponse> getClozeForChallenge(@PathVariable Long lessonId){
+        return exerciseService.getClozeForChallenge(lessonId);
+    }
+
+    @GetMapping("/challenge/ordering/{lessonId}")
+    public List<EnglishOrderingExerciseResponse> getOrderingForChallenge(@PathVariable Long lessonId){
+        return exerciseService.getOrderingForChallenge(lessonId);
     }
 }
