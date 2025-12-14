@@ -1,7 +1,6 @@
 package com.example.elisaappbe.service.englishExercise;
 
-import com.example.elisaappbe.dto.req.EnglishMultipleChoiceRequest;
-import com.example.elisaappbe.dto.req.EnglishSentenceRewritingRequest;
+import com.example.elisaappbe.dto.req.*;
 import com.example.elisaappbe.dto.resp.*;
 
 import java.util.List;
@@ -21,4 +20,19 @@ public interface EnglishExerciseService {
     List<EnglishListeningDictationResponse>  getListeningDictationForChallenge(Long lessonId);
     List<EnglishClozeExerciseResponse> getClozeForChallenge(Long lessonId);
     List<EnglishOrderingExerciseResponse> getOrderingForChallenge(Long lessonId);
+
+
+    EnglishListeningDictationResponse createListeningDictation(Long lessonId, EnglishListeningDictationRequest req);
+    EnglishListeningDictationResponse updateListeningDictation(Long questionId, EnglishListeningDictationRequest req);
+    void deleteListeningDictation(Long questionId);
+
+
+    EnglishClozeExerciseResponse createClozeExercise(Long lessonId, EnglishClozeExerciseRequest req);
+    EnglishClozeExerciseResponse updateClozeExercise(Long questionId, EnglishClozeExerciseRequest req);
+    void deleteClozeExercise(Long questionId);
+
+
+    EnglishOrderingExerciseResponse createOrderingExercise(Long lessonId, EnglishOrderingExerciseRequest req);
+    EnglishOrderingExerciseResponse updateOrderingExercise(Long questionId, EnglishOrderingExerciseRequest req);
+    void deleteOrderingExercise(Long questionId);
 }

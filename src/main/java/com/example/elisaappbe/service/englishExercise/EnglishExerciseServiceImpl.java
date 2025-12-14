@@ -1,13 +1,9 @@
 package com.example.elisaappbe.service.englishExercise;
 
-import com.example.elisaappbe.dto.req.EnglishMultipleChoiceRequest;
-import com.example.elisaappbe.dto.req.EnglishSentenceRewritingRequest;
+import com.example.elisaappbe.dto.req.*;
 import com.example.elisaappbe.dto.resp.*;
 import com.example.elisaappbe.model.*;
-import com.example.elisaappbe.repository.EnglishExerciseRepository;
-import com.example.elisaappbe.repository.EnglishGrammarTheoryRepository;
-import com.example.elisaappbe.repository.EnglishMultipleChoiceQuestionRepository;
-import com.example.elisaappbe.repository.EnglishSentenceRewritingQuestionRepository;
+import com.example.elisaappbe.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +22,21 @@ public class EnglishExerciseServiceImpl implements EnglishExerciseService {
 
     @Autowired
     private EnglishSentenceRewritingQuestionRepository englishSentenceRewritingRepository;
+
+    @Autowired
+    private EnglishListeningDictationRepository listeningDictationRepository;
+
+    @Autowired
+    private EnglishClozeBlankRepository clozeBlankRepository;
+
+    @Autowired
+    private EnglishClozeExerciseRepository clozeExerciseRepository;
+
+    @Autowired
+    private EnglishParagraphSegmentRepository paragraphSegmentRepository;
+
+    @Autowired
+    private EnglishOrderingExerciseRepository orderingExerciseRepository;
 
 
     private EnglishMultipleChoiceResponse toResponseMultiple(EnglishMultipleChoiceQuestion vocab) {
@@ -251,5 +262,169 @@ public class EnglishExerciseServiceImpl implements EnglishExerciseService {
                 .map(this::toResponseOrderingExercise)
                 .collect(Collectors.toList());
     }
+
+    // ===========
+
+    @Override
+    public EnglishListeningDictationResponse createListeningDictation(Long lessonId, EnglishListeningDictationRequest req) {
+        EnglishExercise getEnglishExercise = exerciseRepository.findByLessonIdAndType(lessonId,"ld");
+        EnglishListeningDictation newQuestion = new EnglishListeningDictation();
+        newQuestion.setTitle(req.getTitle());
+        newQuestion.setAudioUrl(req.getAudioUrl());
+        newQuestion.setTranscript(req.getTranscript());
+        newQuestion.setHintText(req.getHintText());
+        newQuestion.setEnglishExercise(getEnglishExercise);
+
+        newQuestion = listeningDictationRepository.save(newQuestion);
+
+        return toResponseListeningDictation(newQuestion);
+    }
+
+    @Override
+    public EnglishListeningDictationResponse updateListeningDictation(Long questionId, EnglishListeningDictationRequest req) {
+        Optional<EnglishListeningDictation> getQuestion = listeningDictationRepository.findById(questionId);
+        EnglishListeningDictation updateQuestion = new EnglishListeningDictation();
+        if(getQuestion.isPresent()){
+            updateQuestion = getQuestion.get();
+            updateQuestion.setTitle(req.getTitle());
+            updateQuestion.setAudioUrl(req.getAudioUrl());
+            updateQuestion.setTranscript(req.getTranscript());
+            updateQuestion.setHintText(req.getHintText());
+            updateQuestion = listeningDictationRepository.save(updateQuestion);
+        }
+        return toResponseListeningDictation(updateQuestion);
+    }
+
+    @Override
+    public void deleteListeningDictation(Long questionId) {
+        Optional<EnglishListeningDictation> getQuestion = listeningDictationRepository.findById(questionId);
+        if(getQuestion.isPresent()){
+            listeningDictationRepository.deleteById(questionId);
+        }
+    }
+
+    // ================ =============
+    @Override
+    public EnglishClozeExerciseResponse createClozeExercise(Long lessonId, EnglishClozeExerciseRequest req) {
+        EnglishExercise getEnglishExercise = exerciseRepository.findByLessonIdAndType(lessonId,"cb");
+        EnglishClozeExercise newQuestion = new EnglishClozeExercise();
+        newQuestion.setTitle(req.getTitle());
+        newQuestion.setContent(req.getContent());
+        newQuestion.setEnglishExercise(getEnglishExercise);
+
+        if(req.getBlanks() != null){
+            List<EnglishClozeBlank> blankEntities = req.getBlanks().stream().map(blankReq -> {
+                EnglishClozeBlank blank = new EnglishClozeBlank();
+                blank.setBlankIndex(blankReq.getBlankIndex());
+                blank.setCorrectAnswer(blankReq.getCorrectAnswer());
+                blank.setHint(blankReq.getHint());
+                blank.setExercise(newQuestion);
+                return blank;
+            }).collect(Collectors.toList());
+
+            newQuestion.setBlanks(blankEntities);
+        }
+
+        EnglishClozeExercise savedQuestion = clozeExerciseRepository.save(newQuestion);
+
+        return toResponseClozeExercise(savedQuestion);
+    }
+
+    @Override
+    public EnglishClozeExerciseResponse updateClozeExercise(Long questionId, EnglishClozeExerciseRequest req) {
+        Optional<EnglishClozeExercise> getQuestion = clozeExerciseRepository.findById(questionId);
+        if(getQuestion.isPresent()){
+            EnglishClozeExercise updateQuestion = getQuestion.get();
+            updateQuestion.setTitle(req.getTitle());
+            updateQuestion.setContent(req.getContent());
+
+            if(req.getBlanks() != null){
+                List<EnglishClozeBlank> blankEntities = req.getBlanks().stream().map(blankReq -> {
+                    EnglishClozeBlank blank = new EnglishClozeBlank();
+                    blank.setBlankIndex(blankReq.getBlankIndex());
+                    blank.setCorrectAnswer(blankReq.getCorrectAnswer());
+                    blank.setHint(blankReq.getHint());
+                    blank.setExercise(updateQuestion);
+                    return blank;
+                }).collect(Collectors.toList());
+
+                updateQuestion.setBlanks(blankEntities);
+            }
+            EnglishClozeExercise savedQuestion = clozeExerciseRepository.save(updateQuestion);
+            return toResponseClozeExercise(savedQuestion);
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteClozeExercise(Long questionId) {
+        Optional<EnglishClozeExercise> getQuestion = clozeExerciseRepository.findById(questionId);
+        if(getQuestion.isPresent()){
+            clozeExerciseRepository.deleteById(questionId);
+        }
+    }
+
+    // ================ =============
+    @Override
+    public EnglishOrderingExerciseResponse createOrderingExercise(Long lessonId, EnglishOrderingExerciseRequest req) {
+        EnglishExercise getEnglishExercise = exerciseRepository.findByLessonIdAndType(lessonId,"pa");
+        EnglishOrderingExercise newQuestion = new EnglishOrderingExercise();
+        newQuestion.setTitle(req.getTitle());
+        newQuestion.setHint(req.getHint());
+        newQuestion.setEnglishExercise(getEnglishExercise);
+
+        if(req.getParagraphs() != null){
+            List<EnglishParagraphSegment> paragraphSegmentEntities = req.getParagraphs().stream().map(paragraphReq ->{
+                EnglishParagraphSegment paragraph = new EnglishParagraphSegment();
+                paragraph.setContent(paragraphReq.getContent());
+                paragraph.setCorrectOrder(paragraphReq.getCorrectOrder());
+                paragraph.setExercise(newQuestion);
+                return paragraph;
+            }).collect(Collectors.toList());
+
+            newQuestion.setParagraphs(paragraphSegmentEntities);
+
+        }
+        EnglishOrderingExercise saveOrderingExercise = orderingExerciseRepository.save(newQuestion);
+
+        return toResponseOrderingExercise(saveOrderingExercise);
+    }
+
+    @Override
+    public EnglishOrderingExerciseResponse updateOrderingExercise(Long questionId, EnglishOrderingExerciseRequest req) {
+        Optional<EnglishOrderingExercise> getQuestion = orderingExerciseRepository.findById(questionId);
+        if(getQuestion.isPresent()){
+            EnglishOrderingExercise updateQuestion = getQuestion.get();
+            updateQuestion.setTitle(req.getTitle());
+            updateQuestion.setHint(req.getHint());
+
+            if(req.getParagraphs() != null){
+                List<EnglishParagraphSegment> paragraphSegmentEntities = req.getParagraphs().stream().map(paragraphReq ->{
+                    EnglishParagraphSegment paragraph = new EnglishParagraphSegment();
+                    paragraph.setContent(paragraphReq.getContent());
+                    paragraph.setCorrectOrder(paragraphReq.getCorrectOrder());
+                    paragraph.setExercise(updateQuestion);
+                    return paragraph;
+                }).collect(Collectors.toList());
+
+                updateQuestion.setParagraphs(paragraphSegmentEntities);
+
+                EnglishOrderingExercise saveOrderingExercise = orderingExerciseRepository.save(updateQuestion);
+
+                return toResponseOrderingExercise(saveOrderingExercise);
+            }
+
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteOrderingExercise(Long questionId) {
+        Optional<EnglishOrderingExercise> getQuestion = orderingExerciseRepository.findById(questionId);
+        if(getQuestion.isPresent()){
+            orderingExerciseRepository.deleteById(questionId);
+        }
+    }
+
 
 }

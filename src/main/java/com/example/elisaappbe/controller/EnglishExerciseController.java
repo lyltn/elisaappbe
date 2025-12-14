@@ -1,16 +1,19 @@
 package com.example.elisaappbe.controller;
 
-import com.example.elisaappbe.dto.req.EnglishMultipleChoiceRequest;
-import com.example.elisaappbe.dto.req.EnglishSentenceRewritingRequest;
+import com.example.elisaappbe.dto.req.*;
 import com.example.elisaappbe.dto.resp.*;
+import com.example.elisaappbe.service.cloud.CloudinaryService;
 import com.example.elisaappbe.service.englishExercise.EnglishExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/api/english-exercise")
@@ -18,6 +21,9 @@ public class EnglishExerciseController {
 
     @Autowired
     private EnglishExerciseService exerciseService;
+
+    @Autowired
+    private CloudinaryService cloudService;
 
     @GetMapping("/{id}")
     public EnglishExerciseResponse getVocabularyTheoriesByLesson(@PathVariable Long id) {
@@ -89,4 +95,86 @@ public class EnglishExerciseController {
     public List<EnglishOrderingExerciseResponse> getOrderingForChallenge(@PathVariable Long lessonId){
         return exerciseService.getOrderingForChallenge(lessonId);
     }
+
+    @PostMapping(value = "/create/listening-dictation/{lessonId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<EnglishListeningDictationResponse> createListeningDictation(@PathVariable Long lessonId,
+                                                                                      @RequestPart("data") EnglishListeningDictationRequest req,
+                                                                                      @RequestParam("file") MultipartFile file ){
+        if (file.isEmpty()) {
+            throw new RuntimeException("File không được để trống");
+        }
+        try {
+            Random rand = new Random();
+            int rd= rand.nextInt(1000000) + 1;
+            String publicId = "ListeningDictation_" + lessonId + "_"+rd;
+            String avatarUrl = cloudService.uploadFile(file,publicId);
+            req.setAudioUrl(avatarUrl);
+            EnglishListeningDictationResponse create = exerciseService.createListeningDictation(lessonId, req);
+            return ResponseEntity.ok(create);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/update/listening-dictation/{questionId}")
+    public EnglishListeningDictationResponse updateListeningDictation(@PathVariable Long questionId,
+                                                                      @RequestBody EnglishListeningDictationRequest req
+                                                                      ){
+        return exerciseService.updateListeningDictation(questionId, req);
+    }
+
+    @DeleteMapping("/delete/listening-dictation/{questionId}")
+    public ResponseEntity<Map<String, Object>> deleteListeningDictation(@PathVariable Long questionId){
+        exerciseService.deleteListeningDictation(questionId);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", true);
+        response.put("message", "Xóa phần câu hỏi nghe chép lại thành công");
+        response.put("deletedId", questionId);
+        return ResponseEntity.ok(response);
+    }
+
+
+    @PostMapping("/create/cloze-exercise/{lessonId}")
+    public EnglishClozeExerciseResponse createClozeExercise(@PathVariable Long lessonId, @RequestBody EnglishClozeExerciseRequest req){
+        return exerciseService.createClozeExercise(lessonId, req);
+    }
+
+    @PutMapping("/update/cloze-exercise/{questionId}")
+    public EnglishClozeExerciseResponse updateClozeExercise(@PathVariable Long questionId,
+                                                            @RequestBody EnglishClozeExerciseRequest req){
+        return exerciseService.updateClozeExercise(questionId, req);
+    }
+
+    @DeleteMapping("/delete/cloze-exercise/{questionId}")
+    public ResponseEntity<Map<String, Object>> deleteClozeExercise(@PathVariable Long questionId){
+        exerciseService.deleteClozeExercise(questionId);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", true);
+        response.put("message", "Xóa phần câu hỏi điền vào chỗ trống thành công");
+        response.put("deletedId", questionId);
+        return ResponseEntity.ok(response);
+    }
+
+
+    @PostMapping("/create/ordering-exercise/{lessonId}")
+    public EnglishOrderingExerciseResponse createOrderingExercise(@PathVariable Long lessonId, @RequestBody EnglishOrderingExerciseRequest req){
+        return exerciseService.createOrderingExercise(lessonId, req);
+    }
+
+    @PutMapping("/update/ordering-exercise/{questionId}")
+    public EnglishOrderingExerciseResponse updateOrderingExercise(@PathVariable Long questionId,
+                                                            @RequestBody EnglishOrderingExerciseRequest req){
+        return exerciseService.updateOrderingExercise(questionId, req);
+    }
+
+    @DeleteMapping("/delete/ordering-exercise/{questionId}")
+    public ResponseEntity<Map<String, Object>> deleteOrderingExercise(@PathVariable Long questionId){
+        exerciseService.deleteOrderingExercise(questionId);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", true);
+        response.put("message", "Xóa phần câu hỏi sắp xếp câu thành công");
+        response.put("deletedId", questionId);
+        return ResponseEntity.ok(response);
+    }
+
 }
