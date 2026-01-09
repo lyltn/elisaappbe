@@ -98,7 +98,7 @@ public class EnglishExerciseController {
 
     @PostMapping(value = "/create/listening-dictation/{lessonId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<EnglishListeningDictationResponse> createListeningDictation(@PathVariable Long lessonId,
-                                                                                      @RequestPart("data") EnglishListeningDictationRequest req,
+                                                                                      @RequestParam("data") EnglishListeningDictationRequest req,
                                                                                       @RequestParam("file") MultipartFile file ){
         if (file.isEmpty()) {
             throw new RuntimeException("File không được để trống");

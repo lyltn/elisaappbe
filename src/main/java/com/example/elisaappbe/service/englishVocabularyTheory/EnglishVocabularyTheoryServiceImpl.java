@@ -1,6 +1,7 @@
 package com.example.elisaappbe.service.englishVocabularyTheory;
 
 import com.example.elisaappbe.dto.req.EnglishVocabularyRequest;
+import com.example.elisaappbe.dto.resp.EnglishIPAResponse;
 import com.example.elisaappbe.dto.resp.EnglishVocabularyTheoryResponse;
 import com.example.elisaappbe.dto.resp.UserResponse;
 import com.example.elisaappbe.dto.resp.VocabularyTheoryResponse;
@@ -11,6 +12,7 @@ import com.example.elisaappbe.repository.EnglishLessonRepository;
 import com.example.elisaappbe.repository.EnglishVocabularyTheoryRepository;
 import com.example.elisaappbe.repository.VocabularyTheoryRepository;
 import com.example.elisaappbe.service.cloud.CloudinaryService;
+import com.example.elisaappbe.service.englishChatbot.GroqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,12 +36,16 @@ public class EnglishVocabularyTheoryServiceImpl implements EnglishVocabularyTheo
     @Autowired
     private CloudinaryService cloudService;
 
+    @Autowired
+    private GroqService groqService;
+
     private EnglishVocabularyTheoryResponse toResponse(EnglishVocabularyTheory vocab) {
         EnglishVocabularyTheoryResponse resp = new EnglishVocabularyTheoryResponse();
         resp.setVocabId(vocab.getVocabId());
         resp.setWord(vocab.getWord());
         resp.setMeaning(vocab.getMeaning());
         resp.setType(vocab.getType());
+        resp.setIpa(vocab.getIpa());
         resp.setExample(vocab.getExample());
         resp.setImage(vocab.getImage());
         return resp;
@@ -69,6 +75,7 @@ public class EnglishVocabularyTheoryServiceImpl implements EnglishVocabularyTheo
         createVocab.setWord(req.getWord());
         createVocab.setMeaning(req.getMeaning());
         createVocab.setType(req.getType());
+        createVocab.setIpa(req.getIpa());
         createVocab.setExample(req.getExample());
         createVocab.setImage(urlImg);
 
@@ -85,6 +92,7 @@ public class EnglishVocabularyTheoryServiceImpl implements EnglishVocabularyTheo
             updateVocab.setWord(req.getWord());
             updateVocab.setMeaning(req.getMeaning());
             updateVocab.setType(req.getType());
+            updateVocab.setIpa(req.getIpa());
             updateVocab.setExample(req.getExample());
             if(req.getFile() != null){
                 if(!req.getFile().isEmpty()){
@@ -106,5 +114,10 @@ public class EnglishVocabularyTheoryServiceImpl implements EnglishVocabularyTheo
         if(getVocab.isPresent()){
             vocabularyRepository.deleteById(vocabId);
         }
+    }
+
+    @Override
+    public EnglishIPAResponse getIPAVocabulary(String vocab) {
+        return groqService.getIPAVocabulary(vocab) ;
     }
 }

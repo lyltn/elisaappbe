@@ -1,8 +1,8 @@
 package com.example.elisaappbe.controller;
 
 import com.example.elisaappbe.dto.req.EnglishVocabularyRequest;
-import com.example.elisaappbe.dto.resp.EnglishVocabularyTheoryResponse;
-import com.example.elisaappbe.dto.resp.VocabularyTheoryResponse;
+import com.example.elisaappbe.dto.resp.*;
+import com.example.elisaappbe.service.englishChatbot.GroqService;
 import com.example.elisaappbe.service.englishVocabularyTheory.EnglishVocabularyTheoryService;
 import com.example.elisaappbe.service.vocabularyTheory.VocabularyTheoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,6 +26,9 @@ public class EnglishVocabularyTheoryController {
 
     @Autowired
     private EnglishVocabularyTheoryService vocabularyTheoryService;
+
+    @Autowired
+    private GroqService groqService;
 
     @GetMapping("/{id}")
     public ResponseEntity<Page<EnglishVocabularyTheoryResponse>> getVocabularyTheoriesByLesson(@PathVariable Long id,
@@ -57,6 +61,25 @@ public class EnglishVocabularyTheoryController {
 
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/ipa/{vocab}")
+    public ResponseEntity<EnglishIPAResponse> getIPAVovabulary(@PathVariable String vocab) {
+        return ResponseEntity.ok(vocabularyTheoryService.getIPAVocabulary(vocab));
+    }
+
+    @PostMapping(value = "/pronunciation-score", consumes = "multipart/form-data")
+    public ResponseEntity<EnglishPronunciationScoreResponse> chatWithVoice(
+            @RequestParam("audio") MultipartFile audioFile,
+            @RequestParam("word") String word
+    ) {
+        try {
+            EnglishPronunciationScoreResponse response = groqService.checkPronunciation(audioFile, word);
+            return ResponseEntity.ok(response);
+        } catch (IOException e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
 
 
 }

@@ -2,6 +2,8 @@ package com.example.elisaappbe.service.englishChatbot;
 
 import com.example.elisaappbe.dto.resp.EnglishChatbotResponse;
 import com.example.elisaappbe.dto.resp.EnglishCheckMessageResponse;
+import com.example.elisaappbe.dto.resp.EnglishIPAResponse;
+import com.example.elisaappbe.dto.resp.EnglishPronunciationScoreResponse;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
@@ -214,10 +216,129 @@ public class GroqService {
             EnglishCheckMessageResponse errorResponse = new EnglishCheckMessageResponse();
             errorResponse.setOriginalSentence(userMessage);
             errorResponse.setScore(0.0f);
-            errorResponse.setEditedSentence("Error analyzing sentence.");
+            errorResponse.setEditedSentence("Server update in progress. Please try again later.");
             errorResponse.setHintText("Server is busy, please try again.");
             return errorResponse;
         }
+    }
+
+    public EnglishIPAResponse getIPAVocabulary(String vocab) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + apiKey);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        // Prompt được tinh chỉnh để cực kỳ ngắn gọn và ép kết quả IPA
+        String systemPrompt = "You are a specialized linguistic assistant. " +
+                "Your ONLY task is to provide the IPA (International Phonetic Alphabet) transcription for English words. " +
+                "Return the result in a valid JSON format with the fields 'word' and 'ipa'. " +
+                "Use the standard American English pronunciation (General American). " +
+                "Do not provide any explanations, notes, or extra text.";
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("model", "llama-3.1-8b-instant");
+        body.put("temperature", 0.0); // Đưa về 0 để kết quả luôn đồng nhất (Deterministic)
+
+        // Ép kiểu trả về JSON
+        Map<String, String> responseFormat = new HashMap<>();
+        responseFormat.put("type", "json_object");
+        body.put("response_format", responseFormat);
+
+        List<Map<String, String>> messages = new ArrayList<>();
+        messages.add(Map.of("role", "system", "content", systemPrompt));
+        messages.add(Map.of("role", "user", "content", "Word: " + vocab));
+
+        body.put("messages", messages);
+
+        HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(body, headers);
+
+        try {
+            ResponseEntity<Map> response = restTemplate.postForEntity(chatUrl, requestEntity, Map.class);
+
+            List<Map<String, Object>> choices = (List<Map<String, Object>>) response.getBody().get("choices");
+            Map<String, Object> message = (Map<String, Object>) choices.get(0).get("message");
+            String jsonContent = (String) message.get("content");
+
+            // Parse JSON trả về class IpaResponse
+            return objectMapper.readValue(jsonContent, EnglishIPAResponse.class);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            EnglishIPAResponse error = new EnglishIPAResponse();
+            error.setWord(vocab);
+            error.setIpa("");
+            return error;
+        }
+    }
+
+
+    public EnglishPronunciationScoreResponse checkPronunciation(MultipartFile audioFile, String targetWord) throws IOException {
+        // 1. Chuyển đổi âm thanh thành văn bản qua mô hình whisper-large-v3
+        String recognizedText = transcribeAudio(audioFile);
+
+        if (recognizedText == null || recognizedText.isEmpty()) {
+            return new EnglishPronunciationScoreResponse(targetWord, 0.0f, "Tôi không nghe thấy gì, bạn hãy thử nói lại nhé!");
+        }
+
+        // 2. Tính điểm bằng thuật toán Levenshtein
+        float score = calculateLevenshteinScore(recognizedText, targetWord);
+
+        // 3. Tạo lời khuyên (hint) dựa trên thang điểm
+        String hint;
+        if (score >= 90) {
+            hint = "Xuất sắc! Bạn phát âm gần như người bản xứ.";
+        } else if (score >= 70) {
+            hint = "Rất tốt! Một vài âm tiết cần rõ ràng hơn một chút.";
+        } else if (score >= 50) {
+            hint = "Khá ổn, nhưng bạn cần chú ý kỹ hơn về các âm đuôi.";
+        } else {
+            hint = "Chưa chính xác lắm. Hãy nghe lại phát âm mẫu và thử lại nhé!";
+        }
+
+        // 4. Trả về kết quả khớp với cấu trúc class của bạn
+        return new EnglishPronunciationScoreResponse(
+                recognizedText, // Trả về từ AI nghe được để học sinh đối chiếu
+                score,
+                hint
+        );
+    }
+
+    /**
+     * Thuật toán tính độ tương đồng văn bản Levenshtein trả về giá trị float (0-100)
+     */
+    private int calculateLevenshteinScore(String recognized, String target) {
+        // Làm sạch chuỗi: viết thường, bỏ ký tự đặc biệt
+        String s1 = recognized.toLowerCase().replaceAll("[^a-z0-9]", "").trim();
+        String s2 = target.toLowerCase().replaceAll("[^a-z0-9]", "").trim();
+
+        if (s1.equals(s2)) return 100;
+        if (s1.isEmpty() || s2.isEmpty()) return 0;
+
+        int[] costs = new int[s2.length() + 1];
+        for (int i = 0; i <= s1.length(); i++) {
+            int lastValue = i;
+            for (int j = 0; j <= s2.length(); j++) {
+                if (i == 0) costs[j] = j;
+                else {
+                    if (j > 0) {
+                        int newValue = costs[j - 1];
+                        if (s1.charAt(i - 1) != s2.charAt(j - 1))
+                            newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                        costs[j - 1] = lastValue;
+                        lastValue = newValue;
+                    }
+                }
+            }
+            if (i > 0) costs[s2.length()] = lastValue;
+        }
+
+        int distance = costs[s2.length()];
+        int maxLength = Math.max(s1.length(), s2.length());
+
+        // Tính toán score kiểu float để giữ độ chính xác trước khi làm tròn
+        float rawScore = ((float) (maxLength - distance) / maxLength) * 100;
+
+        // Làm tròn thành số nguyên và đảm bảo không nhỏ hơn 0
+        return Math.max(0, Math.round(rawScore));
     }
 
 }

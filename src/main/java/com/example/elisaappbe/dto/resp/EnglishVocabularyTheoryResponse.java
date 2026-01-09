@@ -8,6 +8,7 @@ public class EnglishVocabularyTheoryResponse {
     private String word;
     private String meaning;
     private String type;
+    private String ipa;
     private String example;
     private String image;
 }

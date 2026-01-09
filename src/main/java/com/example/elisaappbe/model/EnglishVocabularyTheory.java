@@ -29,6 +29,9 @@ public class EnglishVocabularyTheory {
     @Column(name = "Type")
     private String type;
 
+    @Column(name = "Ipa")
+    private String ipa;
+
     @Column(name = "Example")
     private String example;
 

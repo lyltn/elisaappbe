@@ -13,5 +13,6 @@ public class EnglishVocabularyRequest {
     private String meaning;
     private String example;
     private String type;
+    private String ipa;
     private MultipartFile file;
 }

@@ -1,6 +1,7 @@
 package com.example.elisaappbe.service.englishVocabularyTheory;
 
 import com.example.elisaappbe.dto.req.EnglishVocabularyRequest;
+import com.example.elisaappbe.dto.resp.EnglishIPAResponse;
 import com.example.elisaappbe.dto.resp.EnglishVocabularyTheoryResponse;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ public interface EnglishVocabularyTheoryService {
     EnglishVocabularyTheoryResponse creteaVocabularyOfLesson(Long lessonId, EnglishVocabularyRequest req) throws IOException;
     EnglishVocabularyTheoryResponse updateVocabularyOfLesson(Long vocabId, EnglishVocabularyRequest req) throws IOException;
     void deleteVocabularyOfLesson(Long vocabId);
+    EnglishIPAResponse getIPAVocabulary(String vocab);
 
 
 }
